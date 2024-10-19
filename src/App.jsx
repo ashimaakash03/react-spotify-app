@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar";
 const App = () => {
   return (
     <div className="h-screen bg-black">
-      <div className="h-[90%] flex bg-white">
+      <div className="h-[90%] flex bg-green-400">
         <Sidebar />
       </div>
       <Player />
