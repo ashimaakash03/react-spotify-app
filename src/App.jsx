@@ -8,8 +8,8 @@ const App = () => {
     <div className="h-screen bg-black">
       <div className="h-[90%] flex bg-white">
         <Sidebar />
-        <Player />
       </div>
+      <Player />
     </div>
   );
 };
