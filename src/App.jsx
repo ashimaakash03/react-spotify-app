@@ -1,13 +1,15 @@
 //import React from "react";
 
+import Display from "./components/Display";
 import Player from "./components/Player";
 import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
     <div className="h-screen bg-black">
-      <div className="h-[90%] flex bg-green-400">
+      <div className="h-[90%] flex bg-green-600">
         <Sidebar />
+        <Display />
       </div>
       <Player />
     </div>
