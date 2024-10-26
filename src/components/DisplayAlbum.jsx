@@ -7,7 +7,6 @@ import { albumsData, assets, songsData } from "../assets/assets";
 const DisplayAlbum = () => {
   const { id } = useParams();
   const albumData = albumsData[id];
-  console.log(albumData);
 
   return (
     <>
