@@ -1,7 +1,11 @@
 //import React from 'react'
+import { useContext } from "react";
 import { assets, songsData } from "../assets/assets";
+import { PlayerContext } from "../context/PlayerContext";
 
 const Player = () => {
+  const { seekBar, seekBg, play, pause, playStatus } =
+    useContext(PlayerContext);
   return (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
       <div className="hidden lg:flex items-center gap-4">
@@ -19,14 +23,35 @@ const Player = () => {
             alt=""
           />
           <img className="w-4 cursor-pointer" src={assets.prev_icon} alt="" />
-          <img className="w-4 cursor-pointer" src={assets.play_icon} alt="" />
+          {playStatus ? (
+            <img
+              onClick={pause}
+              className="w-4 cursor-pointer"
+              src={assets.pause_icon}
+              alt=""
+            />
+          ) : (
+            <img
+              onClick={play}
+              className="w-4 cursor-pointer"
+              src={assets.play_icon}
+              alt=""
+            />
+          )}
+
           <img className="w-4 cursor-pointer" src={assets.next_icon} alt="" />
           <img className="w-4 cursor-pointer" src={assets.loop_icon} alt="" />
         </div>
         <div className="flex items-center gap-5">
           <p>3:12</p>
-          <div className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer">
-            <hr className="h-1 border-none w-0 bg-green-400 rounded-full" />
+          <div
+            ref={seekBg}
+            className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer"
+          >
+            <hr
+              ref={seekBar}
+              className="h-1 border-none w-0 bg-green-400 rounded-full"
+            />
           </div>
           <p>3:20</p>
         </div>
@@ -37,9 +62,7 @@ const Player = () => {
         <img className="w-6" src={assets.queue_icon} alt="" />
         <img className="w-6" src={assets.speaker_icon} alt="" />
         <img className="w-6" src={assets.volume_icon} alt="" />
-        <div className="w-20 bg-slate-50 h-1 rounded">
-
-        </div>
+        <div className="w-20 bg-slate-50 h-1 rounded"></div>
         <img className="w-6" src={assets.mini_player_icon} alt="" />
         <img className="w-6" src={assets.zoom_icon} alt="" />
       </div>
