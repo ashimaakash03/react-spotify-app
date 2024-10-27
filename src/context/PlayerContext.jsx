@@ -30,6 +30,20 @@ const PlayerContextProvider = (props) => {
     audioRef.current.pause();
     setPlayStatus(false);
   };
+  const previous = () => {
+    if (track.id > 0) {
+      setTrack(songsData[track.id - 1]);
+      audioRef.current.play();
+      setPlayStatus(true);
+    }
+  };
+  const next = () => {
+    if (track.id < songsData.length - 1) {
+      setTrack(songsData[track.id + 1]);
+      audioRef.current.play();
+      setPlayStatus(true);
+    }
+  };
 
   const playWithId = async (id) => {
     await setTrack(songsData[id]);
@@ -69,7 +83,9 @@ const PlayerContextProvider = (props) => {
     setTime,
     play,
     pause,
-    playWithId
+    playWithId,
+    previous,
+    next,
   };
 
   return (
@@ -80,7 +96,7 @@ const PlayerContextProvider = (props) => {
 };
 
 PlayerContextProvider.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default PlayerContextProvider;
