@@ -33,7 +33,7 @@ const PlayerContextProvider = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      audioRef.current.onTimeUpdate = () => {
+      audioRef.current.ontimeupdate = () => {
         setTime({
           currentTime: {
             second: Math.floor(audioRef.current.currentTime % 60),
